@@ -7,6 +7,15 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ product }) {
     console.log(product);
+    const productCategories = [
+        "CPU Processor",
+        "Motherboard",
+        "RAM",
+        "Power Supply Unit",
+        "Storage Device",
+        "Monitor",
+        "Others",
+    ];
     return (
         <main>
             <h2 className="text-2xl my-[20px]">Featured Products</h2>
@@ -25,23 +34,16 @@ export default function Home({ product }) {
                 ))}
             </div>
             <div className="grid lg:grid-cols-4 md:grid-cols-2  grid-cols-1 mt-[30px]">
-                <Link href="/PC Builder">
-                    {" "}
-                    <div className="bg-blue-300 w-[300px] text-center py-[4rem] rounded-[20px] hover:cursor-pointer">
-                        <h2 className="text-2xl text-white">CPU Processor</h2>
-                    </div>
-                </Link>
-                <div className="bg-blue-300 w-[300px] text-center py-[4rem] rounded-[20px] hover:cursor-pointer">
-                    <h2 className="text-2xl text-white">CPU Processor</h2>
-                </div>
-
-                <div className="bg-blue-300 w-[300px] text-center py-[4rem] rounded-[20px] hover:cursor-pointer">
-                    <h2 className="text-2xl text-white">CPU Processor</h2>
-                </div>
-
-                <div className="bg-blue-300 w-[300px] text-center py-[4rem] rounded-[20px] hover:cursor-pointer">
-                    <h2 className="text-2xl text-white">CPU Processor</h2>
-                </div>
+                {productCategories.map((product) => (
+                    <Link className="my-[10px]" href={`/${product}`} key={product}>
+                        {" "}
+                        <div className="bg-blue-300 w-[300px] text-center py-[4rem] rounded-[20px] hover:cursor-pointer">
+                            <h2 className="text-2xl text-white">
+                                {product}
+                            </h2>
+                        </div>
+                    </Link>
+                ))}
             </div>
         </main>
     );
