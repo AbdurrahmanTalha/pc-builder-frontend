@@ -35,12 +35,14 @@ export default function Home({ product }) {
             </div>
             <div className="grid lg:grid-cols-4 md:grid-cols-2  grid-cols-1 mt-[30px]">
                 {productCategories.map((product) => (
-                    <Link className="my-[10px]" href={`/${product}`} key={product}>
+                    <Link
+                        className="my-[10px]"
+                        href={`/${product}`}
+                        key={product}
+                    >
                         {" "}
                         <div className="bg-blue-300 w-[300px] text-center py-[4rem] rounded-[20px] hover:cursor-pointer">
-                            <h2 className="text-2xl text-white">
-                                {product}
-                            </h2>
+                            <h2 className="text-2xl text-white">{product}</h2>
                         </div>
                     </Link>
                 ))}
@@ -51,7 +53,7 @@ export default function Home({ product }) {
 
 export async function getStaticProps() {
     const res = await fetch(
-        "http://localhost:5000/api/v1/product/getRandomProducts"
+        "https://pc-builder-backend-tau.vercel.app/api/v1/product/getRandomProducts"
     );
     const product = await res.json();
     const { data } = product;

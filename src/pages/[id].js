@@ -27,7 +27,7 @@ export default function ProductCategory({ products }) {
 export const getServerSideProps = async (context) => {
     const { params } = context;
     const res = await fetch(
-        `http://localhost:5000/api/v1/product/getProductByCategory/${params.id}`
+        `https://pc-builder-backend-tau.vercel.app/api/v1/product/getProductByCategory/${params.id}`
     );
     const data = await res.json();
     console.log(data);
